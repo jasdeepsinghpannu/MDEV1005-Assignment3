@@ -8,7 +8,7 @@ class WeatherPage extends StatefulWidget {
 }
 
 class _WeatherPageState extends State<WeatherPage> {
-  final String apiKey = '9cc1bec200044ec50e59b7a7f2486769';  // Replace with your OpenWeatherMap API key
+  final String apiKey = '9cc1bec200044ec50e59b7a7f2486769';
   String city = 'Toronto';
   var temperature;
   var description;

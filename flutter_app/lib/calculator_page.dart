@@ -62,15 +62,25 @@ class _CalculatorPageState extends State<CalculatorPage> {
     });
   }
 
-  Widget buildButton(String buttonText) {
+  Widget buildButton(
+      String buttonText, Color backgroundColor, Color textColor) {
     return Expanded(
       child: OutlinedButton(
         style: OutlinedButton.styleFrom(
           padding: EdgeInsets.all(24.0),
+          side: BorderSide(color: backgroundColor, width: 2.0),
+          backgroundColor: Color.fromARGB(255, 177, 179, 179),
+          shape: RoundedRectangleBorder(
+            borderRadius: BorderRadius.circular(10.0),
+          ),
         ),
         child: Text(
           buttonText,
-          style: TextStyle(fontSize: 20.0, fontWeight: FontWeight.bold),
+          style: TextStyle(
+            fontSize: 20.0,
+            fontWeight: FontWeight.bold,
+            color: textColor,
+          ),
         ),
         onPressed: () => buttonPressed(buttonText),
       ),
@@ -82,17 +92,20 @@ class _CalculatorPageState extends State<CalculatorPage> {
     return Scaffold(
       appBar: AppBar(
         title: Text('Simple Calculator'),
+        backgroundColor: Colors.teal, // AppBar background color
       ),
       body: Column(
         children: <Widget>[
           Container(
             alignment: Alignment.centerRight,
             padding: EdgeInsets.symmetric(vertical: 24.0, horizontal: 12.0),
+            color: Colors.teal[50], // Background color for the display area
             child: Text(
               output,
               style: TextStyle(
                 fontSize: 48.0,
                 fontWeight: FontWeight.bold,
+                color: Colors.teal, // Text color for the display
               ),
             ),
           ),
@@ -103,40 +116,41 @@ class _CalculatorPageState extends State<CalculatorPage> {
             children: [
               Row(
                 children: [
-                  buildButton("7"),
-                  buildButton("8"),
-                  buildButton("9"),
-                  buildButton("/")
+                  buildButton("7", Colors.teal, Colors.black),
+                  buildButton("8", Colors.teal, Colors.black),
+                  buildButton("9", Colors.teal, Colors.black),
+                  buildButton("/", Colors.orange, Colors.black),
                 ],
               ),
               Row(
                 children: [
-                  buildButton("4"),
-                  buildButton("5"),
-                  buildButton("6"),
-                  buildButton("X")
+                  buildButton("4", Colors.teal, Colors.black),
+                  buildButton("5", Colors.teal, Colors.black),
+                  buildButton("6", Colors.teal, Colors.black),
+                  buildButton("X", Colors.orange, Colors.black),
                 ],
               ),
               Row(
                 children: [
-                  buildButton("1"),
-                  buildButton("2"),
-                  buildButton("3"),
-                  buildButton("-")
+                  buildButton("1", Colors.teal, Colors.black),
+                  buildButton("2", Colors.teal, Colors.black),
+                  buildButton("3", Colors.teal, Colors.black),
+                  buildButton("-", Colors.orange, Colors.black),
                 ],
               ),
               Row(
                 children: [
-                  buildButton("."),
-                  buildButton("0"),
-                  buildButton("00"),
-                  buildButton("+")
+                  buildButton(".", Colors.teal, Colors.black),
+                  buildButton("0", Colors.teal, Colors.black),
+                  buildButton("00", Colors.teal, Colors.black),
+                  buildButton("+", Colors.orange, Colors.black),
                 ],
               ),
               Row(
                 children: [
-                  buildButton("CLEAR"),
-                  buildButton("="),
+                  buildButton(
+                      "CLEAR", Colors.red, Color.fromARGB(255, 58, 196, 20)),
+                  buildButton("=", Colors.green, Colors.black),
                 ],
               )
             ],
